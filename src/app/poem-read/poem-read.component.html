@@ -1,0 +1,33 @@
+
+<div style="text-align: center">
+    <mat-paginator style="display: inline-block" (page)="pageChangeEvent($event)" [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions">
+      </mat-paginator>
+</div>
+<ng-container style="text-align: center">  
+<div id="card-container">
+  <div *ngFor="let poem of splicedData">
+       <mat-card fxFlexAlign="stretch" [style.backgroundColor]="'white'" >
+      <mat-card-title>
+        <h4>{{poem.title}}</h4>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>-by {{poem.author}}<i class="material-icons">face</i></p>
+      </mat-card-subtitle>
+      <mat-card-content>
+        <ng-container>
+         <p class="text-style">{{poem.poem}}</p> 
+        </ng-container>
+      </mat-card-content>
+      <mat-card-footer>
+          <i class="material-icons">thumb_down_alt</i>
+          <i class="material-icons">thumb_up_alt</i>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf='splicedData === undefined'>
+
+<h2>SERVER DOWN...! PLEASE COME BACK AGAIN..</h2>>
+</div>
+</ng-container>
